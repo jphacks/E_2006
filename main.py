@@ -8,7 +8,7 @@ while True:
         break
 
     # ウィンドウに出力
-    cv2.imshow("カメラアプリ", frame)
+    cv2.imshow("CameraApp", frame)
     key = cv2.waitKey(1)
     # Escキーを入力されたら画面を閉じる
     if key == 27 or key == ord("q"):
