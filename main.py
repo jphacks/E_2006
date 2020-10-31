@@ -10,6 +10,7 @@ while True:
         break
 
     # カメラに貼り付ける写真の設定周り
+    # TODO: あとでランダムな位置に変更，画像の変更
     img = cv2.imread('assets/sampleImage.png')
     x = -60
     y = 70
