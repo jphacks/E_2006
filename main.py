@@ -1,25 +1,41 @@
 import cv2
 import pasteImage
 
-cap = cv2.VideoCapture(0)
+# TODO: インデックスの設定
+cap = cv2.VideoCapture(1)
+img_flag = False
+img_counter = 0
 while True:
+    key = cv2.waitKey(1)
     # 1フレームずつ取得する。
     ret, frame = cap.read()
     # フレームが取得できなかった場合は、画面を閉じる
     if not ret:
         break
 
-    # カメラに貼り付ける写真の設定周り
-    # TODO: あとでランダムな位置に変更，画像の変更
-    img = cv2.imread('assets/sampleImage.png')
-    x = -60
-    y = 70
-    angle = 20
-    scale = 0.7
-    imgpaste = pasteImage.cvpaste(img, frame, x, y, angle, scale)
+    if key == 13:
+        img_flag = True
 
-    cv2.imshow('CameraApp', imgpaste)
-    key = cv2.waitKey(1)
+    # TODO: 画像の複数枚対応
+    if img_flag == True:
+        # カメラに貼り付ける写真の設定周り
+        # TODO: あとでランダムな位置に変更，画像の変更
+        sample_img = cv2.imread('assets/sampleImage.png')
+        x = -60
+        y = 70
+        angle = 0
+        scale = 3
+        # cvpaste(貼り付ける画像，動画になるフレーム，x座標，y座標，回転，拡大・縮小)
+        imgpaste = pasteImage.cvpaste(sample_img, frame, x, y, angle, scale)
+
+        cv2.imshow('CameraApp', imgpaste)
+
+        img_counter += 1
+        if img_counter == 10:
+            img_flag = False
+            img_counter = 0
+    else:
+        cv2.imshow('CameraApp', frame)
 
     # 終了処理
     if key == 27 or key == ord("q"):
