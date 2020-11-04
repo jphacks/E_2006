@@ -1,13 +1,10 @@
 import cv2
 import pasteImage
 import random
-from VoiceClassification import predictor
+# from VoiceClassification import predictor
 
 import threading
 import time
-
-from queue import Queue
-history = Queue(maxsize=50)
 
 # TODO: インデックスの設定
 cap = cv2.VideoCapture(1)

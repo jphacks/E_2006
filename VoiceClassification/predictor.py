@@ -1,10 +1,8 @@
 import os
 import pickle
-from.recorder import WaveRecorder
+from recorder import WaveRecorder
 import soundfile as sf
 import numpy as np
-
-
 
 rec = WaveRecorder()
 
@@ -23,4 +21,7 @@ def predict():
     return yesno[int(pred)]
 
 if __name__ == "__main__":
-    predict()
+    while True:
+        result = predict()
+        with open("VoiceClassification/result.txt", mode='w') as f:
+            f.write(result)
