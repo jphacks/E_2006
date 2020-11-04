@@ -1,5 +1,6 @@
 import cv2
 import pasteImage
+import random
 
 # TODO: インデックスの設定
 cap = cv2.VideoCapture(1)
@@ -21,11 +22,11 @@ while True:
         # カメラに貼り付ける写真の設定周り
         # TODO: あとでランダムな位置に変更，画像の変更
         sample_img = cv2.imread('assets/sampleImage.png')
-        x = -60
-        y = 70
+        x = random.randint(-50, 50)*10
+        y = random.randint(-15, 15)*10
         angle = 0
-        scale = 3
-        # cvpaste(貼り付ける画像，動画になるフレーム，x座標，y座標，回転，拡大・縮小)
+        scale = 1
+        # cvpaste(貼り付ける画像，動画になるフレーム，x座標(-500 ~ 500)，y座標，回転，拡大・縮小)
         imgpaste = pasteImage.cvpaste(sample_img, frame, x, y, angle, scale)
 
         cv2.imshow('CameraApp', imgpaste)
