@@ -27,7 +27,7 @@ def get_rms(block):
     return math.sqrt(sum_squares / count)
 
 
-class TapTester(object):
+class ClapDetection(object):
     def __init__(self):
         self.pa = pyaudio.PyAudio()
         self.stream = self.open_mic_stream()
@@ -94,7 +94,7 @@ class TapTester(object):
 
 
 if __name__ == "__main__":
-    tt = TapTester()
+    tt = ClapDetection()
 
     for i in range(1000):
         tt.listen()
