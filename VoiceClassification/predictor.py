@@ -1,19 +1,18 @@
+import os
 import pickle
-import recorder
+from.recorder import WaveRecorder
 import soundfile as sf
 import numpy as np
 
-rec = recorder.WaveRecorder()
 
-clf = pickle.load(open('model/yesno_model.sav','rb'))
+
+rec = WaveRecorder()
+
+clf = pickle.load(open('VoiceClassification/model/yesno_model.sav','rb'))
 
 yesno = ['No', 'Yes']
 
-while True:
-    # print('Press enter to start recording. Type end to finish recording.')
-    # if input() == 'end':
-    #     break
-
+def predict():
     rec.record('output.wav')
     wav, _ = sf.read('output.wav')
     wav = np.array(wav[:, 0])
@@ -21,3 +20,7 @@ while True:
     wav = np.hstack((wf.real**2 + wf.imag**2, np.arctan2(wf.real, wf.imag)))
     pred = clf.predict(np.array([wav]))
     print("result:",yesno[int(pred)])
+    return yesno[int(pred)]
+
+if __name__ == "__main__":
+    predict()

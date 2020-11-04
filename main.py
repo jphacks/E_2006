@@ -1,6 +1,7 @@
 import cv2
 import pasteImage
 import random
+from VoiceClassification import predictor
 
 # TODO: インデックスの設定
 cap = cv2.VideoCapture(1)
@@ -13,10 +14,13 @@ while True:
     # フレームが取得できなかった場合は、画面を閉じる
     if not ret:
         break
-
-    # TODO: ここにトリガーを記述
-    if key == 13:
+    tmp = predictor.predict()
+    if tmp == "Yes":
         img_flag = True
+
+    # # TODO: ここにトリガーを記述
+    # if key == 13:
+    #     img_flag = True
 
     # TODO: 画像の複数枚対応
     if img_flag == True:
