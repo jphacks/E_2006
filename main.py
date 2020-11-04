@@ -14,6 +14,7 @@ while True:
     if not ret:
         break
 
+    # TODO: ここにトリガーを記述
     if key == 13:
         img_flag = True
 
