@@ -67,8 +67,8 @@ while True:
     # keyboard actions images
     if good_img_flag == True:
         paste_img = cv2.imread('assets/good.png')
-        x = random.randint(-50, 50)*10
-        y = random.randint(-15, 15)*10
+        x = -300
+        y = 200
         angle = 0
         scale = 1.2
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
@@ -78,8 +78,8 @@ while True:
             good_img_counter = 0
     if bad_img_flag == True:
         paste_img = cv2.imread('assets/bad.png')
-        x = random.randint(-50, 50)*10
-        y = random.randint(-15, 15)*10
+        x = 300
+        y = 200
         angle = 0
         scale = 1.2
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
@@ -122,8 +122,8 @@ while True:
             clap_img_counter = 0
     if ok_img_flag == True:
         paste_img = cv2.imread('assets/ok.png')
-        x = random.randint(-50, 50)*10
-        y = random.randint(-15, 15)*10
+        x = 0
+        y = 0
         angle = 0
         scale = 1.2
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
@@ -133,8 +133,8 @@ while True:
             ok_img_counter = 0
     if raising_hand_img_flag == True:
         paste_img = cv2.imread('assets/raising_hand.png')
-        x = random.randint(-50, 50)*10
-        y = random.randint(-15, 15)*10
+        x = -500
+        y = 200
         angle = 0
         scale = 1.2
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
