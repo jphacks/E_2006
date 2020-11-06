@@ -39,6 +39,7 @@ while True:
 
     if key == ord("m"):
         ml_flag = not ml_flag
+        print("ML",ml_flag)
 
     if ml_flag:
         if text == "Yes":
@@ -75,7 +76,7 @@ while True:
     # keyboard actions images
     if good_img_flag == True:
         paste_img = cv2.imread('assets/good.png')
-        x = -300
+        x = -200
         y = 200
         angle = 0
         scale = 1.2
@@ -86,7 +87,7 @@ while True:
             good_img_counter = 0
     if bad_img_flag == True:
         paste_img = cv2.imread('assets/bad.png')
-        x = 300
+        x = 150
         y = 200
         angle = 0
         scale = 1.2
@@ -130,10 +131,10 @@ while True:
             clap_img_counter = 0
     if ok_img_flag == True:
         paste_img = cv2.imread('assets/ok.png')
-        x = 0
-        y = 0
+        x = -250
+        y = -200
         angle = 0
-        scale = 1.2
+        scale = 1
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
         ok_img_counter += 1
         if ok_img_counter == img_display_time:
@@ -144,7 +145,7 @@ while True:
         x = -500
         y = 200
         angle = 0
-        scale = 1.2
+        scale = 1
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
         raising_hand_img_counter += 1
         if raising_hand_img_counter == img_display_time:
