@@ -23,6 +23,9 @@ clap_img_counter = 0
 ok_img_counter = 0
 raising_hand_img_counter = 0
 img_display_time = 10
+
+ml_flag = False
+
 while True:
     key = cv2.waitKey(1)
     # 1フレームずつ取得する。
@@ -33,12 +36,17 @@ while True:
 
     with open("VoiceClassification/result.txt", mode="r", errors='ignore', encoding="utf-8")as f:
         text = f.read()
-    if text == "Yes":
-        yes_img_flag = True
-    if text == "No":
-        no_img_flag = True
-    if text == "Clap":
-        clap_img_flag = True
+
+    if key == ord("m"):
+        ml_flag = not ml_flag
+
+    if ml_flag:
+        if text == "Yes":
+            yes_img_flag = True
+        if text == "No":
+            no_img_flag = True
+        if text == "Clap":
+            clap_img_flag = True
 
     # 各種トリガーを記述
     if key == ord("g"):
