@@ -4,13 +4,13 @@ import wave
 
 class WaveRecorder():
 
-    def __init__(self, chunc=1024, fmt=pyaudio.paInt16, channels=1, rate=44100, record_sec=2):
+    def __init__(self, chunc=1024, fmt=pyaudio.paInt16, channels=2, rate=44100, record_sec=2):
         self.CHUNK = chunc
         self.FORMAT = fmt
         self.CHANNELS = channels
         self.RATE = rate
         self.RECORD_SECONDS = record_sec
-
+    
     def record(self, fname):
         p = pyaudio.PyAudio()
         stream = p.open(format=self.FORMAT,

@@ -7,7 +7,7 @@ import threading
 import time
 
 # TODO: インデックスの設定
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 clap_img_flag = False
 yes_img_flag = False
 no_img_flag = False
