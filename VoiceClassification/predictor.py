@@ -6,9 +6,9 @@ import numpy as np
 
 rec = WaveRecorder()
 
-clf = pickle.load(open('VoiceClassification/model/yesno_model.sav','rb'))
+clf = pickle.load(open('VoiceClassification/model/several_model_add_none_class.sav','rb'))
 
-yesno = ['No', 'Yes']
+yesno = ['No','Yes','None','Clap']
 
 def predict():
     rec.record('output.wav')

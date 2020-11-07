@@ -5,6 +5,8 @@ import threading
 import time
 
 cap = cv2.VideoCapture(1)
+# cap = cv2.VideoCapture(0)
+
 good_img_flag = False
 bad_img_flag = False
 yes_img_flag = False
@@ -20,6 +22,9 @@ clap_img_counter = 0
 ok_img_counter = 0
 raising_hand_img_counter = 0
 img_display_time = 10
+
+ml_flag = False
+
 while True:
     key = cv2.waitKey(1)
     # 1フレームずつ取得
@@ -30,12 +35,18 @@ while True:
 
     with open("VoiceClassification/result.txt", mode="r", errors='ignore', encoding="utf-8")as f:
         text = f.read()
-    if text == "Yes":
-        yes_img_flag = True
-    if text == "No":
-        no_img_flag = True
-    if text == "Clap":
-        clap_img_flag = True
+
+    if key == ord("m"):
+        ml_flag = not ml_flag
+        print("ML", ml_flag)
+
+    if ml_flag:
+        if text == "Yes":
+            yes_img_flag = True
+        if text == "No":
+            no_img_flag = True
+        if text == "Clap":
+            clap_img_flag = True
 
     # 各種トリガーを記述
     if key == ord("g"):
@@ -64,7 +75,7 @@ while True:
     # キーボードを押したときに表示する各画像
     if good_img_flag == True:
         paste_img = cv2.imread('assets/good.png')
-        x = -300
+        x = -200
         y = 200
         angle = 0
         scale = 1.2
@@ -75,7 +86,7 @@ while True:
             good_img_counter = 0
     if bad_img_flag == True:
         paste_img = cv2.imread('assets/bad.png')
-        x = 300
+        x = 150
         y = 200
         angle = 0
         scale = 1.2
@@ -119,10 +130,10 @@ while True:
             clap_img_counter = 0
     if ok_img_flag == True:
         paste_img = cv2.imread('assets/ok.png')
-        x = 0
-        y = 0
+        x = -250
+        y = -200
         angle = 0
-        scale = 1.2
+        scale = 1
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
         ok_img_counter += 1
         if ok_img_counter == img_display_time:
@@ -133,7 +144,7 @@ while True:
         x = -500
         y = 200
         angle = 0
-        scale = 1.2
+        scale = 1
         frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
         raising_hand_img_counter += 1
         if raising_hand_img_counter == img_display_time:
