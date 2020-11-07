@@ -10,7 +10,6 @@ class WaveRecorder():
         self.CHANNELS = channels
         self.RATE = rate
         self.RECORD_SECONDS = record_sec
-    
     def record(self, fname):
         p = pyaudio.PyAudio()
         stream = p.open(format=self.FORMAT,
