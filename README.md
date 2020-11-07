@@ -1,6 +1,6 @@
 # RxCamera
 
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2020/09/JPHACKS2020_ogp.jpg)](https://www.youtube.com/watch?v=G5rULR53uMk)
+[![RxCamera Image](./assets/app-image.png)](https://youtu.be/RVrLSIpozF0)
 
 ## 製品概要
 
@@ -18,11 +18,20 @@ Python で RxCamera を起動して，OBS バーチャルカメラで指定す�
 
 #### 1. キーボードを用いたリアクションの可視化とアプリの制御
 
+それぞれのキーに対応したアクションを行います．
+![キーボード操作](./assets/keyboard-actions.png "キーボード操作")
+
 #### 2. 機械学習を用いた音声認識による音声でのリアクションの可視化
+
+自作モデルを用いた音声認識も実装しました．この昨日は m キーを押すことで on/off の切り替えが可能です．
 
 #### 3. Zoom や Discord など既存のオンラインツールと合わせて利用可能
 
+デモ動画では Zoom を用いていますが，他のオンラインツールでも使用できます．
+
 ### 解決出来ること
+
+スピーカーが話す際に，他の人のリアクションが見えず，一人の空間で話してしまっているような感覚になることを防ぎます．また，手軽な動作で様々なリアクションを取ることができるため，オンライン会議を活発にします．
 
 ### 今後の展望
 
