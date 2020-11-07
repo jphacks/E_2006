@@ -1,12 +1,9 @@
 import cv2
 import pasteImage
 import random
-# from VoiceClassification import predictor
-
 import threading
 import time
 
-# TODO: インデックスの設定
 cap = cv2.VideoCapture(1)
 good_img_flag = False
 bad_img_flag = False
@@ -25,9 +22,9 @@ raising_hand_img_counter = 0
 img_display_time = 10
 while True:
     key = cv2.waitKey(1)
-    # 1フレームずつ取得する。
+    # 1フレームずつ取得
     ret, frame = cap.read()
-    # フレームが取得できなかった場合は、画面を閉じる
+    # フレームが取得できなかった場合は終了
     if not ret:
         break
 
@@ -57,14 +54,14 @@ while True:
         raising_hand_img_flag = True
 
     # 各画像の表示
-    # default images
+    # キーボードを押したときの動作表
     paste_img = cv2.imread('assets/keyboard-actions.png')
     x = -500
     y = -150
     angle = 0
     scale = 0.5
     frame = pasteImage.cvpaste(paste_img, frame, x, y, angle, scale)
-    # keyboard actions images
+    # キーボードを押したときに表示する各画像
     if good_img_flag == True:
         paste_img = cv2.imread('assets/good.png')
         x = -300
