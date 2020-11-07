@@ -151,7 +151,7 @@ while True:
             raising_hand_img_flag = False
             raising_hand_img_counter = 0
 
-    cv2.imshow('CameraApp', frame)
+    cv2.imshow('RxCamera', frame)
 
     # 終了処理
     if key == 27 or key == ord("q"):
